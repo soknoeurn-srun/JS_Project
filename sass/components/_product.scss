@@ -1,0 +1,11 @@
+@import'mixin/mixin';
+.product_container {
+  height: 80vh;
+  button {
+    margin: 2% 0 2% 2%;
+    @include buttonAdd
+  }
+  button:hover {
+    background: $bg_color;
+  }
+}

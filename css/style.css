@@ -16,7 +16,8 @@ nav {
   align-items: center;
   justify-content: space-around;
   height: 25vh;
-  border-bottom: 10px solid orange;
+  border-bottom: 5px solid orange;
+
 }
 .logo {
   background:#fff;
@@ -78,7 +79,7 @@ nav {
   justify-content: space-between;
 }
 .user i {
-  color: orange;
+  color: #ffa500;
   font-size: 40px;
 }
 .switch {
@@ -99,7 +100,5 @@ a {
 }
 .customer {
   margin-right: 10%;
-}
-.seller {
   border-bottom: 5px solid #ffa500;
 }

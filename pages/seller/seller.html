@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Gold Laptop Shop</title>
   <link rel="shortcut icon" href="../../images/url_logo.png" type="image/x-icon">
-  <link rel="stylesheet" href="css/seller.css">
+  <link rel="stylesheet" href="../../css/main.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="js/seller.js" defer></script>
 </head>
@@ -32,6 +32,82 @@
         <i class="fa fa-user-circle-o" aria-hidden="true"></i>
       </div>
     </nav>
+    <div class="switch">
+      <a href="../../index.html" class="customer">Customer</a>
+      <a href="#" class="seller">Seller</a>
+    </div>
+    <section class="product_container">
+      <button id="add_product" onclick="onAdd()">+Add Product</button>
+      <div class="product">
+        <!-- TO create CARD of prodicts -->
+      </div>
+    </section>
+    <form class="form_dialog" style="display: none;">
+      <dialog open>
+        <div class="form_content">
+          <label for="">Name:</label>
+          <input type="text" placeholder="Product's name...">
+        </div>
+        <div class="form_content">
+          <label for="">Description:</label>
+          <textarea name="" id="" placeholder="Product detail"></textarea>
+        </div>
+        <div class="form_content">
+          <label for="">Price:</label>
+          <input type="text" placeholder="Product's Price...">
+        </div>
+        <div class="form_content">
+          <label for="">Currency:</label>
+          <input type="text" placeholder="Product's type price...">
+        </div>
+        <div class="form_content">
+          <label for="">Product Image:</label>
+          <input type="file" >
+        </div>
+        <div class="button">
+          <button onclick="onCancel()">Cancel</button>
+          <button onclick="onAdd()">Add</button>
+        </div>
+      </dialog>
+    </form>
+    <footer>
+      <div class="about_us">
+        <h3>About Us</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perferendis error quod sunt sequi! Explicabo vel, nisi repellat vero nobis.</p>
+        <div class="follow">
+          <i class="fa fa-facebook-square" aria-hidden="true"></i>
+          <i class="fa fa-instagram" aria-hidden="true"></i>
+          <i class="fa fa-twitter-square" aria-hidden="true"></i>
+        </div>
+
+      </div>
+      <div class="open_hour">
+        <h3>Opening Hours</h3>
+        <p>Our Support Available to hel you 24 hours a day. We provide Our best</p>
+        <ul>
+          <li>Sun - Thu : 08:00 am - 20:00 am</li>
+          <li>Friday : 09:00 am - 00:00 am</li>
+          <li>Saturday : We are CLOSED !</li>
+        </ul>
+      </div>
+      <div class="contact">
+        <h3>Contact info</h3>
+        <div class="info">
+          <i class="fa-solid fa-envelope"></i>
+          <p>Lorem@gmail.com</p>
+        </div>
+
+        <div class="info">
+          <i class="fa fa-map-marker-alt fa-fw"></i>
+          <p>Phnome Penh, Cambodia</p>
+        </div>
+
+        <div class="info">
+          <i class="fas fa-phone-volume fa-fw"></i>
+            <p>555-847-998</p>
+        </div>
+      </div>
+    </footer>
   </div>
 </body>
 </html>
