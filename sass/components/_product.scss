@@ -1,11 +1,50 @@
 @import'mixin/mixin';
 .product_container {
-  height: 80vh;
+  // height: 80vh;
   button {
     margin: 2% 0 2% 2%;
     @include buttonAdd
   }
   button:hover {
     background: $bg_color;
+  }
+  @import 'variables';
+  width: 60%;
+  margin: 10px auto ;
+  .card {
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+    background: rgb(123, 122, 122);
+    border-radius: $boder_raduis;
+    display: flex;
+    justify-content: space-between;
+    .product_info {
+
+      display: flex;
+      justify-content: space-between;
+      img {
+        width: 45%;
+      }
+      .detail {
+        // width: 40%;
+        display: flex;
+        flex-direction: column;
+        span {
+          text-align: left;
+          color: $text_color;
+        }
+      }
+    }
+    .actions {
+      // width: 50%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      img {
+        margin: 5px;
+        width: 15%;
+      }
+    }
   }
 }

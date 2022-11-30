@@ -101,7 +101,8 @@ body {
 }
 
 .product_container {
-  height: 80vh;
+  width: 60%;
+  margin: 10px auto;
 }
 .product_container button {
   margin: 2% 0 2% 2%;
@@ -115,6 +116,39 @@ body {
 }
 .product_container button:hover {
   background: orange;
+}
+.product_container .card {
+  width: 90%;
+  padding: 10px;
+  margin: 10px;
+  background: rgb(123, 122, 122);
+  border-radius: 7px;
+  display: flex;
+  justify-content: space-between;
+}
+.product_container .card .product_info {
+  display: flex;
+  justify-content: space-between;
+}
+.product_container .card .product_info img {
+  width: 45%;
+}
+.product_container .card .product_info .detail {
+  display: flex;
+  flex-direction: column;
+}
+.product_container .card .product_info .detail span {
+  text-align: left;
+  color: #fff;
+}
+.product_container .card .actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.product_container .card .actions img {
+  margin: 5px;
+  width: 15%;
 }
 
 .product_dialog {
@@ -222,6 +256,7 @@ body {
 footer {
   background: #000;
   padding: 10px;
+  margin-top: 10%;
   color: #fff;
   border-top: 5px solid orange;
   display: flex;
@@ -266,42 +301,4 @@ footer .contact .info i {
   font-size: 30px;
   color: orange;
   cursor: pointer;
-}
-
-#products_container {
-  width: 60%;
-  margin: auto;
-}
-#products_container .card {
-  width: 90%;
-  padding: 10px;
-  margin: 10px;
-  background: rgb(123, 122, 122);
-  border-radius: 7px;
-  display: flex;
-  justify-content: space-between;
-}
-#products_container .card .product_info {
-  display: flex;
-  justify-content: space-between;
-}
-#products_container .card .product_info img {
-  width: 45%;
-}
-#products_container .card .product_info .detail {
-  display: flex;
-  flex-direction: column;
-}
-#products_container .card .product_info .detail span {
-  text-align: left;
-  color: #fff;
-}
-#products_container .card .actions {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-#products_container .card .actions img {
-  margin: 5px;
-  width: 15%;
 }/*# sourceMappingURL=main.css.map */

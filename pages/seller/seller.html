@@ -40,7 +40,7 @@
     <section class="product_container">
       <div class="product_view">
         <!-- When click on button ADD -->
-        <button id="add_product" onclick="onAdd()">+Add Product</button>
+        <button id="add_product" onclick="onAddProduct()">+Add Product</button>
         <div id="products_container">
           <!-- TO create CARD of each products -->
           <!-- <div class="card" data-index="0">
@@ -67,19 +67,23 @@
         <div class="form_container">
           <div class="form_content">
             <label for="">Name:</label>
-            <input type="text" placeholder="Product's name...">
+            <input type="text" id="name" placeholder="Product's name...">
+          </div>
+          <div class="form_content">
+            <label for="">Type:</label>
+            <input type="text" id="type" placeholder="Product's Type...">
           </div>
           <div class="form_content">
             <label for="">Description:</label>
-            <textarea name="" id="" placeholder="Product detail"></textarea>
+            <textarea name="" id="text" placeholder="Product detail"></textarea>
           </div>
           <div class="form_content">
             <label for="">Price:</label>
-            <input type="text" placeholder="Product's Price...">
+            <input type="text" id="productPrice" placeholder="Product's Price...">
           </div>
           <div class="form_content">
             <label for="">Currency:</label>
-            <select name="" id="">
+            <select name="" id="currency">
               <option value="" selected disabled>Choose product's type price</option>
               <option value="$">$</option>
               <option value="៛">៛</option>
@@ -87,12 +91,12 @@
           </div>
           <div class="form_content">
             <label for="">Product Image:</label>
-            <input type="file" >
+            <input type="file" id="productImage">
           </div>
         </div>
         <div class="button">
           <button onclick="onCancel()">Cancel</button>
-          <button onclick="onAdd()">Create</button>
+          <button v-if="createEditButton" onclick="onCreateProduct()">Create</button>
         </div>
       </dialog>
     </div>
