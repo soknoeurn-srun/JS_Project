@@ -7,6 +7,11 @@ footer {
   justify-content: space-around;
   .about_us {
     width: 20%;
+    i {
+      font-size: 30px;
+      cursor: pointer;
+      margin-right: 5px;
+    }
   }
   .open_hour {
     width: 20%;
@@ -18,6 +23,26 @@ footer {
     margin-bottom: 5%;
   }
   p,li{
-    line-height: 30px;
+    line-height: 40px;
+  }
+  .contact {
+    width: 18%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 10px;
+    .info {
+      display: flex;
+      justify-content: space-between;
+      p {
+        text-align: left;
+      }
+      gap: 10px;
+      i {
+        font-size: 30px;
+        color: $bg_color;
+        cursor: pointer;
+      }
+    }
   }
 }

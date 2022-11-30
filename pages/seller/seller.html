@@ -15,7 +15,7 @@
     <nav>
       <div class="logo">
         <a href="../../index.html">
-          <img src="../../images/The gold laptop2.png" alt="">
+          <img src="../../images/gold_laptop2.png" alt="">
         </a>
       </div>
       <div class="search">
@@ -32,44 +32,71 @@
         <i class="fa fa-user-circle-o" aria-hidden="true"></i>
       </div>
     </nav>
+    <!-- End navigation bar -->
     <div class="switch">
       <a href="../../index.html" class="customer">Customer</a>
       <a href="#" class="seller">Seller</a>
     </div>
     <section class="product_container">
-      <button id="add_product" onclick="onAdd()">+Add Product</button>
-      <div class="product">
-        <!-- TO create CARD of prodicts -->
+      <div class="product_view">
+        <!-- When click on button ADD -->
+        <button id="add_product" onclick="onAdd()">+Add Product</button>
+        <div id="products_container">
+          <!-- TO create CARD of each products -->
+          <!-- <div class="card" data-index="0">
+            <div class="product_info">
+              <img src="../../images/macBook.png" alt="">
+              <div class="detail">
+                <span class="name">TUF Gaming</span>
+                <span class="type">Mac Book</span>
+                <span class="description">Mac</span>
+                <span class="price">999.99$</span>
+              </div>
+            </div>
+            <div class="actions">
+              <img src="../../images/update.png" alt="">
+              <img src="../../images/delete.png" alt="">
+            </div> -->
+          </div>
+        </div>
       </div>
     </section>
-    <form class="form_dialog" style="display: none;">
+    <div class="product_dialog" style="display: none;">
       <dialog open>
-        <div class="form_content">
-          <label for="">Name:</label>
-          <input type="text" placeholder="Product's name...">
-        </div>
-        <div class="form_content">
-          <label for="">Description:</label>
-          <textarea name="" id="" placeholder="Product detail"></textarea>
-        </div>
-        <div class="form_content">
-          <label for="">Price:</label>
-          <input type="text" placeholder="Product's Price...">
-        </div>
-        <div class="form_content">
-          <label for="">Currency:</label>
-          <input type="text" placeholder="Product's type price...">
-        </div>
-        <div class="form_content">
-          <label for="">Product Image:</label>
-          <input type="file" >
+        <header>Create a new Product</header>
+        <div class="form_container">
+          <div class="form_content">
+            <label for="">Name:</label>
+            <input type="text" placeholder="Product's name...">
+          </div>
+          <div class="form_content">
+            <label for="">Description:</label>
+            <textarea name="" id="" placeholder="Product detail"></textarea>
+          </div>
+          <div class="form_content">
+            <label for="">Price:</label>
+            <input type="text" placeholder="Product's Price...">
+          </div>
+          <div class="form_content">
+            <label for="">Currency:</label>
+            <select name="" id="">
+              <option value="" selected disabled>Choose product's type price</option>
+              <option value="$">$</option>
+              <option value="៛">៛</option>
+            </select>
+          </div>
+          <div class="form_content">
+            <label for="">Product Image:</label>
+            <input type="file" >
+          </div>
         </div>
         <div class="button">
           <button onclick="onCancel()">Cancel</button>
-          <button onclick="onAdd()">Add</button>
+          <button onclick="onAdd()">Create</button>
         </div>
       </dialog>
-    </form>
+    </div>
+    <!-- end form -->
     <footer>
       <div class="about_us">
         <h3>About Us</h3>
@@ -93,17 +120,17 @@
       <div class="contact">
         <h3>Contact info</h3>
         <div class="info">
-          <i class="fa-solid fa-envelope"></i>
+          <i class="fa fa-envelope" aria-hidden="true"></i>
           <p>Lorem@gmail.com</p>
         </div>
 
         <div class="info">
-          <i class="fa fa-map-marker-alt fa-fw"></i>
-          <p>Phnome Penh, Cambodia</p>
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+          <p>Phnome Penh</p>
         </div>
 
         <div class="info">
-          <i class="fas fa-phone-volume fa-fw"></i>
+          <i class="fa fa-phone" aria-hidden="true"></i>
             <p>555-847-998</p>
         </div>
       </div>
