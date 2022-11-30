@@ -105,15 +105,29 @@ let renderProducts = () =>{
 
     let btn_delete = document.createElement('img');
     btn_delete.src = '../../images/delete.png';
+    btn_delete.addEventListener('click', removeProduct)
     action.appendChild(btn_delete)
     //append child
     card.appendChild(productInfo);
     card.appendChild(action)
     dom_product_container.appendChild(card);
-    console.log(action);
+    // console.log(action);
   }
   product_view.appendChild(dom_product_container);
 
+}
+
+let removeProduct = (event) => {
+  let index = event.target.parentElement.parentElement.dataset.index;
+  console.log(index);
+  // remove product
+  products.splice(index, 1);
+
+  //save to locla storage 
+  saveProducts()
+
+  //update to the view
+  renderProducts()
 }
 let onAdd = () => {
   show(dom_product_dialog)
@@ -125,6 +139,9 @@ let onCancel = (e) =>{
   console.log(dom_product_dialog);
   hide(dom_product_dialog);
 }
+
+loadProducts();
 renderProducts();
+
 let btn_add = product_view.querySelector('#add_product');
 btn_add.addEventListener('click', onAdd);
