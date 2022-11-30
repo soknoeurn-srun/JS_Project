@@ -19,6 +19,22 @@ let products = [
     image:'c/'
   },
   {
+    name:'ASUS Gaming',
+    type:'ASUS',
+    description:'Core i7,RAM 16GB,Core 10, Thread 20, SSD 512GB',
+    price:1100.99,
+    currency:'$',
+    image:'c/'
+  },
+  {
+    name:'Microsoft Surface',
+    type:'Microsofe Surface',
+    description:'Core i7,RAM 16GB,Core 10, Thread 20, SSD 512GB',
+    price:1999.99,
+    currency:'$',
+    image:'c/'
+  },
+  {
     name:'MSI 2020',
     type:'MSI',
     description:'Core i5,RAM 8GB,Core 4, Thread 6, SSD 512GB',
@@ -28,8 +44,10 @@ let products = [
   }
 ];
 
+
 //get index--------------------
 let index = products.length;
+// let productToUpdate = null;
 //HIDE AND SHOW -------------------------------------------
 let hide = (element) => {
   element.style.display = "none";
@@ -79,12 +97,7 @@ let renderProducts = () =>{
     names.className = 'name';
     names.textContent = product.name + ' ' + product.type;
     detail.appendChild(names);
-
-    // let type = document.createElement('span');
-    // type.className = 'type';
-    // type.textContent = product.type;
-    // detail.appendChild(type);
-
+    //for detailing more information
     let description = document.createElement('span');
     description.className = 'description';
     description.textContent = product.description;
@@ -98,9 +111,11 @@ let renderProducts = () =>{
     // create a new div for button update and delete-------------
     let action = document.createElement('div');
     action.className = 'actions';
-
+    // create a new img for button update and delete
     let btn_update = document.createElement('img');
+    btn_update.dataset.index = index;
     btn_update.src = '../../images/update.png';
+    btn_update.addEventListener('click',updateProduct)
     action.appendChild(btn_update);
 
     let btn_delete = document.createElement('img');
@@ -116,17 +131,52 @@ let renderProducts = () =>{
   product_view.appendChild(dom_product_container);
 
 }
-// let updateProduct = (event) => {
-//   //get product index
-//   productToUpdate = event.target.parentElement.parentElement.dataset.index;
 
-//   // update dialog with product information
-//   let product = products[productToUpdate];
-//   document.
-  
-// }
+
+let canCreate= true;
+let showDataInputUpdate=(data)=>{
+  let product_name = document.getElementById('name');
+  product_name.value = data.name
+  let product = document.querySelector('.product_info img');
+  product.value = data.image
+  let product_type = document.getElementById('type');
+  product_type.value = data.type
+  let product_description = document.getElementById('text');
+  product_description.value = data.description
+  let product_price = document.getElementById('productPrice');
+  product_price.value = data.price
+  let currency = document.getElementById('currency');
+  currency.value = data.currency
+  // let choose_img = document.getElementById('productImage');
+  return {"data":data}
+}
+
+let clearInput=()=>{
+  let product_name = document.getElementById('name');
+  product_name.value = ''
+  let product = document.querySelector('.product_info img');
+  product.value =''
+  let product_type = document.getElementById('type');
+  product_type.value =''
+  let product_description = document.getElementById('text');
+  product_description.value = ''
+  let product_price = document.getElementById('productPrice');
+  product_price.value = ''
+  let currency = document.getElementById('currency');
+  currency.value = ''
+
+}
+let updateProduct = (event) => {
+  //get product index
+  canCreate = false
+  index = event.target.parentElement.parentElement.dataset.index;
+  let product = products[index];
+  showDataInputUpdate(product)
+  document.querySelector('#createEditButton').textContent = 'Update';
+  show(dom_product_dialog);
+}
 let removeProduct = (event) => {
-  let index = event.target.parentElement.parentElement.dataset.index;
+  index = event.target.parentElement.parentElement.dataset.index;
   // remove product
   products.splice(index, 1);
 
@@ -142,43 +192,39 @@ let onAddProduct = () => {
 };
 //Cancel and Add -------------------------------------------
 let onCancel = (e) =>{
-  console.log('cancel');
-  console.log(dom_product_dialog);
   hide(dom_product_dialog);
 }
 let onCreateProduct = () => {
-  let product = document.querySelector('.product_info img');
   let product_name = document.getElementById('name').value;
-  console.log(product_name);
   let product_type = document.getElementById('type').value;
   let product_description = document.getElementById('text').value;
-  console.log(product_description);
   let product_price = document.getElementById('productPrice').value;
-  console.log(product_price);
   let currency = document.getElementById('currency').value;
-  console.log(currency);
-  let choose_img = document.getElementById('productImage').value;
-  console.log(choose_img);
-
-  let product_input =  product_name && product_description && product_price && currency && choose_img;
-  if (!(product_input)){
-    // 
-    console.log('false');
-  }else {
-    product_input = {
-      name: product_name,
-      type:product_type,
-      description: product_description,
-      price: product_price,
-      currency: currency,
-    }
-    products.push(product_input);
-    hide(dom_product_dialog);
+  // let product = document.querySelector('.product_info img');
+  // let choose_img = document.getElementById('productImage').value;
+  let objData ={
+    name: product_name,
+    type:product_type,
+    description: product_description,
+    price: product_price,
+    currency: currency,
   }
+  // check required input
+  let product_input =  product_name !=='' && product_type !=='' && product_price !=='';
+  console.log(canCreate, product_input);
+  if(canCreate && product_input){
+    products.push(objData);
+  }else{
+  // Update vai index 
+  products[index] = objData;
+  }
+  hide(dom_product_dialog);
   //save to local storage
   saveProducts();
   // update to the view
   renderProducts()
+  // clear input 
+  clearInput()
 }
 saveProducts()
 loadProducts();

@@ -67,11 +67,11 @@
         <div class="form_container">
           <div class="form_content">
             <label for="">Name:</label>
-            <input type="text" id="name" placeholder="Product's name...">
+            <input type="text" id="name" placeholder="Product's name..." required>
           </div>
           <div class="form_content">
             <label for="">Type:</label>
-            <input type="text" id="type" placeholder="Product's Type...">
+            <input type="text" id="type" placeholder="Product's Type..." required>
           </div>
           <div class="form_content">
             <label for="">Description:</label>
@@ -79,7 +79,7 @@
           </div>
           <div class="form_content">
             <label for="">Price:</label>
-            <input type="text" id="productPrice" placeholder="Product's Price...">
+            <input type="text" id="productPrice" placeholder="Product's Price..." required>
           </div>
           <div class="form_content">
             <label for="">Currency:</label>
@@ -96,7 +96,7 @@
         </div>
         <div class="button">
           <button onclick="onCancel()">Cancel</button>
-          <button v-if="createEditButton" onclick="onCreateProduct()">Create</button>
+          <button id="createEditButton" onclick="onCreateProduct()">Create</button>
         </div>
       </dialog>
     </div>
