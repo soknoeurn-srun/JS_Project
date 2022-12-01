@@ -249,7 +249,7 @@ let onCreateProduct = () => {
   // clear input 
   clearInput()
 }
-saveProducts()
+// saveProducts()
 loadProducts();
 renderProducts();
 

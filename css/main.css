@@ -282,7 +282,6 @@ body {
 footer {
   background: #000;
   padding: 10px;
-  margin-top: 10%;
   color: #fff;
   border-top: 5px solid orange;
   display: flex;
@@ -329,43 +328,51 @@ footer .contact .info i {
   cursor: pointer;
 }
 
-.productCard {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.dom_product_container {
+  width: 100%;
+  background: rgb(135, 134, 134);
+  display: flex;
+  flex-direction: column-reverse;
+}
+.dom_product_container .productCard {
   padding: 10px;
   margin: auto;
-  background: rgb(218, 17, 17);
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
 }
-.productCard .card_show {
+.dom_product_container .productCard .card_show {
+  margin: auto;
   padding: 10px;
   border-radius: 7px;
   background: rgb(250, 248, 248);
-  width: 80%;
+  width: 85%;
 }
-.productCard .card_show .product_info .product {
+.dom_product_container .productCard .card_show .product_info .product {
   width: 100%;
+  height: 25vh;
   border-radius: 7px;
   background: #000;
 }
-.productCard .card_show .product_info .product img {
+.dom_product_container .productCard .card_show .product_info .product img {
   width: 90%;
 }
-.productCard .card_show .product_info .product_detail {
+.dom_product_container .productCard .card_show .product_info .product_detail {
   margin-top: 10px;
 }
-.productCard .card_show .product_info .product_detail p {
+.dom_product_container .productCard .card_show .product_info .product_detail p {
   font-size: 20px;
 }
-.productCard .card_show .rate {
+.dom_product_container .productCard .card_show .rate {
   display: flex;
 }
-.productCard .card_show .rate img {
+.dom_product_container .productCard .card_show .rate img {
   width: 10%;
 }
-.productCard .card_show .addToCart {
+.dom_product_container .productCard .card_show .addToCart {
   margin-top: 2%;
 }
-.productCard .card_show .addToCart button {
+.dom_product_container .productCard .card_show .addToCart button {
   padding: 7px;
   border: none;
   border-radius: 7px;
@@ -374,7 +381,34 @@ footer .contact .info i {
   background: transparent;
   transition: ease-in-out 0.3s;
 }
-.productCard .card_show .addToCart button:hover {
+.dom_product_container .productCard .card_show .addToCart button:hover {
   background: orange;
   cursor: pointer;
+}
+.dom_product_container .subscribe {
+  width: 50%;
+  border-radius: 7px;
+  margin: 5% auto;
+  background: #fffdfd;
+  display: flex;
+  justify-content: space-between;
+}
+.dom_product_container .subscribe input {
+  width: 83%;
+  padding: 20px;
+  border-radius: 7px;
+  border: none;
+  outline: none;
+  background: #fffdfd;
+}
+.dom_product_container .subscribe ::placeholder {
+  font-size: 20px;
+}
+.dom_product_container .subscribe .submit {
+  background: orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 0 7px 7px 0;
 }/*# sourceMappingURL=main.css.map */
