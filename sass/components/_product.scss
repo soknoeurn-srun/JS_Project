@@ -20,30 +20,37 @@
     display: flex;
     justify-content: space-between;
     .product_info {
-
       display: flex;
-      justify-content: space-between;
       img {
-        width: 45%;
+        // background: #000;
+        width: 30%;
       }
       .detail {
-        // width: 40%;
         display: flex;
         flex-direction: column;
-        span {
+        p {
+          font-size: 17px;
+          // background: #000;
           text-align: left;
           color: $text_color;
+          line-height: 30px;
+        }
+        p:last-child {
+          text-align: left;
+          color: $bg_color;
+          font-weight: bold;
         }
       }
     }
     .actions {
-      // width: 50%;
+      width: 50%;
       display: flex;
       justify-content: flex-end;
       align-items: center;
       img {
-        margin: 5px;
-        width: 15%;
+        width: 40px;
+        height: 40px;
+        margin: 10px;
       }
     }
   }

@@ -93,17 +93,17 @@ let renderProducts = () =>{
     detail.className = 'detail';  
     productInfo.appendChild(detail);
 
-    let names = document.createElement('span');
+    let names = document.createElement('p');
     names.className = 'name';
     names.textContent = product.name + ' ' + product.type;
     detail.appendChild(names);
     //for detailing more information
-    let description = document.createElement('span');
+    let description = document.createElement('p');
     description.className = 'description';
     description.textContent = product.description;
     detail.appendChild(description);
 
-    let price = document.createElement('span');
+    let price = document.createElement('p');
     price.className = 'price';
     price.textContent = 'Price: ' + product.price + ' ' + product.currency;
     detail.appendChild(price);
@@ -190,6 +190,29 @@ let onAddProduct = () => {
   show(dom_product_dialog)
   document.getElementById('createEditButton').textContent = 'Create';
 };
+//Search products-------------------------------------------
+let onSearchProduct = (event) => {
+  let inputText = searchProduct.value;
+  console.log(inputText);
+  let inputLower = inputText.toLowerCase();
+  //loop all spans
+  let productList = document.querySelectorAll('.card');
+  // console.log(productList);
+  for (let spanItem of productList) {
+    console.log(spanItem.firstChild.lastChild.firstChild.textContent);
+    let productTitle = spanItem.firstChild.lastChild.firstChild.textContent.toLocaleLowerCase();
+
+    //update the style of the span 
+    let productDisplay = "";
+    // console.log(productTitle.indexOf (inputLower));
+    if (productTitle.indexOf(inputLower) === -1) {
+      productDisplay = "none";
+    }else {
+      productDisplay = "block";
+    }
+    spanItem.style.display = productDisplay;
+  };
+};
 //Cancel and Add -------------------------------------------
 let onCancel = (e) =>{
   hide(dom_product_dialog);
@@ -230,5 +253,8 @@ saveProducts()
 loadProducts();
 renderProducts();
 
+let searchProduct = document
+.querySelector('#search_bar input');
+searchProduct.addEventListener('keyup', onSearchProduct)
 let btn_add = product_view.querySelector('#add_product');
 btn_add.addEventListener('click', onAddProduct);

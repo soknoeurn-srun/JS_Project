@@ -1,0 +1,50 @@
+.productCard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  padding: 10px;
+  margin: auto;
+  background: rgb(218, 17, 17);
+  .card_show {
+    
+    padding: 10px;
+    border-radius: $boder_raduis;
+    background: rgb(250, 248, 248);
+    width: 80%;
+    .product_info{
+      .product {
+        width: 100%;
+        border-radius: $boder_raduis;
+        background: #000;
+        img {
+          // background: #000;
+          width: 90%;
+        }
+
+      }
+      .product_detail {
+        margin-top: 10px;
+        p {
+          font-size: 20px;
+        }
+      }
+    }
+    .rate {
+      display: flex;
+      img {
+        width: 10%;
+      }
+    }
+    .addToCart {
+      // float: right;
+      margin-top: 2%;
+      button {
+        @include smallButton
+      }
+      button:hover {
+        background: $bg_color;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -45,12 +45,12 @@ body {
   justify-content: center;
   cursor: pointer;
 }
-.container nav .search .search_bar {
-  width: 70%;
+.container nav .search #search_bar {
+  width: 90%;
   margin-left: 20px;
   display: flex;
 }
-.container nav .search .search_bar .icon {
+.container nav .search #search_bar .icon {
   width: 5%;
   height: 100%;
   display: flex;
@@ -58,27 +58,42 @@ body {
   align-items: center;
   font-size: 30px;
 }
-.container nav .search .search_bar input {
+.container nav .search #search_bar input {
   padding: 10px;
   margin-left: 5%;
-  width: 70%;
+  width: 100%;
   font-size: 20px;
   border: none;
 }
-.container nav .search .search_bar input:focus {
+.container nav .search #search_bar input:focus {
   outline: none;
 }
-.container nav .search .search_bar input:focus ::placeholder {
+.container nav .search #search_bar input:focus ::placeholder {
   font-size: 20px;
 }
 .container nav .user {
   width: 10%;
   display: flex;
+  position: relative;
   justify-content: space-between;
 }
 .container nav .user i {
   color: orange;
   font-size: 40px;
+  position: relative;
+}
+.container nav .user i article {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  text-align: center;
+  font-size: 18px;
+  width: 20px;
+  padding: 6px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgb(255, 255, 255);
 }
 .container .switch {
   background: #000;
@@ -98,6 +113,9 @@ body {
 .container .switch .customer {
   margin-right: 10%;
   border-bottom: 5px solid orange;
+}
+.container .switch .seller {
+  margin-left: 10%;
 }
 
 .product_container {
@@ -128,27 +146,35 @@ body {
 }
 .product_container .card .product_info {
   display: flex;
-  justify-content: space-between;
 }
 .product_container .card .product_info img {
-  width: 45%;
+  width: 30%;
 }
 .product_container .card .product_info .detail {
   display: flex;
   flex-direction: column;
 }
-.product_container .card .product_info .detail span {
+.product_container .card .product_info .detail p {
+  font-size: 17px;
   text-align: left;
   color: #fff;
+  line-height: 30px;
+}
+.product_container .card .product_info .detail p:last-child {
+  text-align: left;
+  color: orange;
+  font-weight: bold;
 }
 .product_container .card .actions {
+  width: 50%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 .product_container .card .actions img {
-  margin: 5px;
-  width: 15%;
+  width: 40px;
+  height: 40px;
+  margin: 10px;
 }
 
 .product_dialog {
@@ -300,5 +326,55 @@ footer .contact .info p {
 footer .contact .info i {
   font-size: 30px;
   color: orange;
+  cursor: pointer;
+}
+
+.productCard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 10px;
+  margin: auto;
+  background: rgb(218, 17, 17);
+}
+.productCard .card_show {
+  padding: 10px;
+  border-radius: 7px;
+  background: rgb(250, 248, 248);
+  width: 80%;
+}
+.productCard .card_show .product_info .product {
+  width: 100%;
+  border-radius: 7px;
+  background: #000;
+}
+.productCard .card_show .product_info .product img {
+  width: 90%;
+}
+.productCard .card_show .product_info .product_detail {
+  margin-top: 10px;
+}
+.productCard .card_show .product_info .product_detail p {
+  font-size: 20px;
+}
+.productCard .card_show .rate {
+  display: flex;
+}
+.productCard .card_show .rate img {
+  width: 10%;
+}
+.productCard .card_show .addToCart {
+  margin-top: 2%;
+}
+.productCard .card_show .addToCart button {
+  padding: 7px;
+  border: none;
+  border-radius: 7px;
+  border: 2px solid orange;
+  font-size: 15px;
+  background: transparent;
+  transition: ease-in-out 0.3s;
+}
+.productCard .card_show .addToCart button:hover {
+  background: orange;
   cursor: pointer;
 }/*# sourceMappingURL=main.css.map */
