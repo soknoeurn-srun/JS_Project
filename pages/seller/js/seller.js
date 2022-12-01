@@ -134,7 +134,7 @@ let renderProducts = () =>{
 
 
 let canCreate= true;
-let showDataInputUpdate=(data)=>{
+let showDataInputUpdate = (data) =>{
   let product_name = document.getElementById('name');
   product_name.value = data.name
   let product = document.querySelector('.product_info img');
@@ -184,7 +184,7 @@ let removeProduct = (event) => {
   saveProducts()
 
   //update to the view
-  renderProducts()
+  renderProducts();
 }
 let onAddProduct = () => {
   show(dom_product_dialog)

@@ -1,6 +1,6 @@
 .dom_product_container {
   width: 100%;
-  background: rgb(135, 134, 134);
+  background: rgba(201, 199, 199, 0.46);
   display: flex;
   flex-direction: column-reverse;
   .productCard {
@@ -11,11 +11,15 @@
     grid-gap: 20px;
     grid-template-columns: repeat(4, 1fr);
     .card_show {
+      position: relative;
       margin: auto;
       padding: 10px;
       border-radius: $boder_raduis;
-      background: rgb(250, 248, 248);
-      width: 85%;
+      background:#fff;
+      box-shadow: rgba(240, 234, 234, 0.16) 0px 1px 4px, orange 0px 0px 0.5px 1px;
+
+      width: 90%;
+      height: 55vh;
       .product_info{
         .product {
           width: 100%;
@@ -33,16 +37,24 @@
           p {
             font-size: 20px;
           }
+          a {
+            text-decoration: none;
+          }
+
         }
       }
       .rate {
         display: flex;
+        margin-top: 2%;
         img {
           width: 10%;
         }
       }
       .addToCart {
         // float: right;
+        position: absolute;
+      bottom: 3%;
+        right: 3%;
         margin-top: 2%;
         button {
           @include smallButton
@@ -53,7 +65,15 @@
         }
       }
     }
-
+    .card_show:hover {
+      cursor: pointer;
+      a {
+        color: $bg_color;
+      }
+      button {
+        background: $bg_color;
+      }
+    }
   }
   .subscribe {
     width: 50%;

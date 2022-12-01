@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Gold Laptop Shop</title>
   <link rel="shortcut icon" href="../../images/url_logo.png" type="image/x-icon">
-  <link rel="stylesheet" href="css/main.min.css">
+  <link rel="stylesheet" href="../../css/main.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="pages/seller/js/customer.js" defer></script>
 </head>
 <body>
-  <div class="container">
+  <section class="container">
     <nav>
       <div class="logo">
         <a href="../../index.html">
@@ -28,31 +28,44 @@
         <div class="click_search">Search</div>
       </div>
       <div class="user">
-        <a href="pages/myCart/myCart.html">
-          <i class="fa fa-shopping-cart" aria-hidden="true">
-            <article id="cart">
-              0
-            </article>
-          </i>
-
-        </a>
+        <i class="fa fa-shopping-cart" aria-hidden="true">
+          <article id="cart">
+            0
+          </article>
+        </i>
       
         <i class="fa fa-user-circle-o" aria-hidden="true"></i>
       </div>
     </nav>
-    <div class="switch">
-      <a href="#" class="customer">Customer</a>
-      <a href="pages/seller/seller.html">Seller</a>
-    </div>
-    <div class="dom_product_container">
-      <div class="productCard">
-        <!-- GET DATA OBJECT FROM SELLER-->
+
+    <!-- TO SHOW CARD THAT CUSTOMR CLICKED -->
+    <section id="productCart">
+      <div class="cartDetail">
+        <div class="product_image">
+          <img src="../../images/macBook.png" alt="">
+        </div>
+        <div class="detail">
+          <div class="detail_more">
+            <p>Brand: name</p>
+            <p>Type: Type name</p>
+            <p>Description: Description</p>
+            <p>Price: 1000$</p>
+          </div>
+          <div class="btn">
+            <div class="cancel" style="display: none;">
+              <a href="../../index.html">
+                <button>Cancel</button>
+              </a>
+            </div>
+            <div class="add">
+              <button>BUY NOW</button>
+            </div>
+          </div
       </div>
-      <div class="subscribe">
-        <input type="email" placeholder="Your Email...">
-        <div class="submit">Subscribe</div>
-      </div>
-    </div>
+    </section>
+    <section id="cardBank">
+      
+    </section>
     <footer>
       <div class="about_us">
         <h3>About Us</h3>
