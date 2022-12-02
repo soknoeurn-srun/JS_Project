@@ -1,57 +1,79 @@
 @import '../variables';
 #productCart {
-  width: 100%;
   padding: 5%;
   background: #fff;
-  .cartDetail {
-    background: rgba(201, 199, 199, 0.46);
-    border-radius: $boder_raduis;
-    padding: 2%;
-    width: 80%;
-    display: flex;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 1px 8px 3px;
-    .product_image {
-      width: 50%;
-      margin-right: 5%;
-      img {
-        width: 100%;
-      }
-    }
-    .detail {
-      width: 40%;
+  .cart_container {
+    width: 90%;
+    margin: auto;
+    // background: #000;
+    .cartDetail {
+      position: relative;
+      background: rgba(201, 199, 199, 0.46);
+      border-radius: $boder_raduis;
+      padding: 2%;
+      width: 80%;
+      margin: 4% auto;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      .detail_more {
-        line-height: 50px;
-        p {
-          font-size: 30px;
+      justify-content: space-around;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 1px 8px 3px;
+      .product_image {
+        width: 40%;
+        margin-right: 5%;
+        img {
+          width: 100%;
         }
       }
-      .btn {
+      .detail {
+        width: 50%;
         display: flex;
-        justify-content: flex-end;
-        gap: 10px;
-        margin: 2%;
-        .cancel {
-          width: 30%;
-          border-radius: $boder_raduis;
-          button {
-            width: 100%;
-            padding: 10px;
-            @include smallButton;
-            font-size: 20px;
-          }
-          button:hover {
-            background: $bg_color;
+        flex-direction: column;
+        justify-content: space-between;
+        .detail_more {
+          line-height: 50px;
+          p {
+            font-size: 30px;
           }
         }
-        .add {
-          
-          @extend .cancel;
-
+        .btn {
+          display: flex;
+          justify-content: flex-end;
+          gap: 10px;
+          margin: 2%;
+          .cancel {
+            width: 30%;
+            border-radius: $boder_raduis;
+            button {
+              width: 100%;
+              padding: 10px;
+              @include smallButton;
+              font-size: 20px;
+            }
+            button:hover {
+              background: $bg_color;
+            }
+          }
+          .add {
+            
+            @extend .cancel;
+  
+          }
         }
+      }
+      .delete_card {
+        position: absolute;
+        padding: 10px;
+        top: 0;
+        right: 0;
+        width: 4%;
+        // background: #000;
+        img {
+          width: 100%;
+        }
+      }
+      .delete_card:hover {
+        cursor: pointer;
       }
     }
+
   }
 }

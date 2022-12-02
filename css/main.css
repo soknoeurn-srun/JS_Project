@@ -398,6 +398,9 @@ footer .contact .info i {
 }
 .dom_product_container .productCard .card_show:hover {
   cursor: pointer;
+  -ms-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
 }
 .dom_product_container .productCard .card_show:hover a {
   color: orange;
@@ -434,48 +437,54 @@ footer .contact .info i {
 }
 
 #productCart {
-  width: 100%;
   padding: 5%;
   background: #fff;
 }
-#productCart .cartDetail {
+#productCart .cart_container {
+  width: 90%;
+  margin: auto;
+}
+#productCart .cart_container .cartDetail {
+  position: relative;
   background: rgba(201, 199, 199, 0.46);
   border-radius: 7px;
   padding: 2%;
   width: 80%;
+  margin: 4% auto;
   display: flex;
+  justify-content: space-around;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 1px 8px 3px;
 }
-#productCart .cartDetail .product_image {
-  width: 50%;
+#productCart .cart_container .cartDetail .product_image {
+  width: 40%;
   margin-right: 5%;
 }
-#productCart .cartDetail .product_image img {
+#productCart .cart_container .cartDetail .product_image img {
   width: 100%;
 }
-#productCart .cartDetail .detail {
-  width: 40%;
+#productCart .cart_container .cartDetail .detail {
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-#productCart .cartDetail .detail .detail_more {
+#productCart .cart_container .cartDetail .detail .detail_more {
   line-height: 50px;
 }
-#productCart .cartDetail .detail .detail_more p {
+#productCart .cart_container .cartDetail .detail .detail_more p {
   font-size: 30px;
 }
-#productCart .cartDetail .detail .btn {
+#productCart .cart_container .cartDetail .detail .btn {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
   margin: 2%;
 }
-#productCart .cartDetail .detail .btn .cancel, #productCart .cartDetail .detail .btn .add {
+#productCart .cart_container .cartDetail .detail .btn .cancel, #productCart .cart_container .cartDetail .detail .btn .add {
   width: 30%;
   border-radius: 7px;
 }
-#productCart .cartDetail .detail .btn .cancel button, #productCart .cartDetail .detail .btn .add button {
+#productCart .cart_container .cartDetail .detail .btn .cancel button, #productCart .cart_container .cartDetail .detail .btn .add button {
   width: 100%;
   padding: 10px;
   padding: 7px;
@@ -487,6 +496,19 @@ footer .contact .info i {
   transition: ease-in-out 0.3s;
   font-size: 20px;
 }
-#productCart .cartDetail .detail .btn .cancel button:hover, #productCart .cartDetail .detail .btn .add button:hover {
+#productCart .cart_container .cartDetail .detail .btn .cancel button:hover, #productCart .cart_container .cartDetail .detail .btn .add button:hover {
   background: orange;
+}
+#productCart .cart_container .cartDetail .delete_card {
+  position: absolute;
+  padding: 10px;
+  top: 0;
+  right: 0;
+  width: 4%;
+}
+#productCart .cart_container .cartDetail .delete_card img {
+  width: 100%;
+}
+#productCart .cart_container .cartDetail .delete_card:hover {
+  cursor: pointer;
 }/*# sourceMappingURL=main.css.map */

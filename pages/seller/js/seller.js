@@ -193,7 +193,6 @@ let onAddProduct = () => {
 //Search products-------------------------------------------
 let onSearchProduct = (event) => {
   let inputText = searchProduct.value;
-  console.log(inputText);
   let inputLower = inputText.toLowerCase();
   //loop all spans
   let productList = document.querySelectorAll('.card');

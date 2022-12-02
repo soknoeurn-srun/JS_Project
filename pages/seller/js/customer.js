@@ -124,12 +124,14 @@ let onClickAddToCart = (event) => {
   let product = customerProducts[index];
   //To get data from user click
   userData.push(product);
-  console.log(userData);
+  console.log(product);
+  userDataClick()
 }
+//To count the number of products user clicked on
 let userDataClick = () => {
   let userCart = userData.length;
-  console.log(userCart);
   document.querySelector('article').innerHTML = userCart;
+  // console.log(userCart);
   saveData();
   loadProductUser();
 };
