@@ -95,7 +95,7 @@ let customerProduct = () => {
     addToCard.appendChild(btn_addToCart);
   }
   dom_products_container.appendChild(customer_product)
-  console.log(customer_product);
+  // console.log(customer_product);
 };
 
 //TO SEARCH PRODUCT FOR CUSTOMERS----------------------------
@@ -124,7 +124,7 @@ let onClickAddToCart = (event) => {
   let product = customerProducts[index];
   //To get data from user click
   userData.push(product);
-  console.log(product);
+  console.log(index);
   userDataClick()
 }
 //To count the number of products user clicked on

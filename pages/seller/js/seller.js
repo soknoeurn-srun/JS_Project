@@ -46,7 +46,7 @@ let products = [
 
 
 //get index--------------------
-let index = products.length;
+let productLength = products.length;
 // let productToUpdate = null;
 //HIDE AND SHOW -------------------------------------------
 let hide = (element) => {
