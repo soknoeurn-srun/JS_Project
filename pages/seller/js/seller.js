@@ -1,46 +1,47 @@
 const product_view = document.querySelector(".product_view");
 const dom_product_dialog = document.querySelector('.product_dialog')
+let info = document.querySelectorAll('.infoRequired');
 //DATA-----------------------------------------------------
 let products = [
   {
-    name:'MSI Pro 2022',
-    type:'MSI',
-    description:'Core i7,RAM 16GB,Core 10, Thread 20, SSD 512GB',
-    price:999.99,
-    currency:'$',
-    image:'c/'
+    name: 'MSI Pro 2022',
+    type: 'MSI',
+    description: 'Core i7,RAM 16GB,Core 10, Thread 20, SSD 512GB',
+    price: 999.99,
+    currency: '$',
+    image: 'c/'
   },
   {
-    name:'ASUS Gaming',
-    type:'ASUS',
-    description:'Core i7,RAM 16GB,Core 10, Thread 20, SSD 512GB',
-    price:1100.99,
-    currency:'$',
-    image:'c/'
+    name: 'ASUS Gaming',
+    type: 'ASUS',
+    description: 'Core i7,RAM 16GB,Core 10, Thread 20, SSD 512GB',
+    price: 1100.99,
+    currency: '$',
+    image: 'c/'
   },
   {
-    name:'ASUS Gaming',
-    type:'ASUS',
-    description:'Core i7,RAM 16GB,Core 10, Thread 20, SSD 512GB',
-    price:1100.99,
-    currency:'$',
-    image:'c/'
+    name: 'ASUS Gaming',
+    type: 'ASUS',
+    description: 'Core i7,RAM 16GB,Core 10, Thread 20, SSD 512GB',
+    price: 1100.99,
+    currency: '$',
+    image: 'c/'
   },
   {
-    name:'Microsoft Surface',
-    type:'Microsofe Surface',
-    description:'Core i7,RAM 16GB,Core 10, Thread 20, SSD 512GB',
-    price:1999.99,
-    currency:'$',
-    image:'c/'
+    name: 'Microsoft Surface',
+    type: 'Microsofe Surface',
+    description: 'Core i7,RAM 16GB,Core 10, Thread 20, SSD 512GB',
+    price: 1999.99,
+    currency: '$',
+    image: ' '
   },
   {
-    name:'MSI 2020',
-    type:'MSI',
-    description:'Core i5,RAM 8GB,Core 4, Thread 6, SSD 512GB',
-    price:499.99,
-    currency:'$',
-    image:'c/'
+    name: 'MSI 2020',
+    type: 'MSI',
+    description: 'Core i5,RAM 8GB,Core 4, Thread 6, SSD 512GB',
+    price: 499.99,
+    currency: '$',
+    image: 'c/'
   }
 ];
 
@@ -58,7 +59,7 @@ let show = (element) => {
 
 //Local Storage----------------------------------------------
 let saveProducts = () => {
-  localStorage.setItem('products',JSON.stringify(products));
+  localStorage.setItem('products', JSON.stringify(products));
 };
 
 let loadProducts = () => {
@@ -69,12 +70,12 @@ let loadProducts = () => {
 };
 
 // EDIT ====================================================
-let renderProducts = () =>{
+let renderProducts = () => {
   let dom_product_container = document.querySelector('#products_container');
   dom_product_container.remove();
   dom_product_container = document.createElement("div");
   dom_product_container.id = "products_container";
-  for (let index = 0 ; index < products.length; index++) {
+  for (let index = 0; index < products.length; index++) {
     let product = products[index];
 
     let card = document.createElement('div');
@@ -82,15 +83,15 @@ let renderProducts = () =>{
     card.dataset.index = index;
     let productInfo = document.createElement('div');
     productInfo.className = 'product_info';
-    
+
     // //Create image
     let product_img = document.createElement('img');
     product_img.src = '../../images/macBook.png';
     productInfo.appendChild(product_img);
-    
+
     //create a new div to detail more about product--------------------
     let detail = document.createElement('div');
-    detail.className = 'detail';  
+    detail.className = 'detail';
     productInfo.appendChild(detail);
 
     let names = document.createElement('p');
@@ -115,7 +116,7 @@ let renderProducts = () =>{
     let btn_update = document.createElement('img');
     btn_update.dataset.index = index;
     btn_update.src = '../../images/update.png';
-    btn_update.addEventListener('click',updateProduct)
+    btn_update.addEventListener('click', updateProduct)
     action.appendChild(btn_update);
 
     let btn_delete = document.createElement('img');
@@ -133,8 +134,8 @@ let renderProducts = () =>{
 }
 
 
-let canCreate= true;
-let showDataInputUpdate = (data) =>{
+let canCreate = true;
+let showDataInputUpdate = (data) => {
   let product_name = document.getElementById('name');
   product_name.value = data.name
   let product = document.querySelector('.product_info img');
@@ -148,22 +149,22 @@ let showDataInputUpdate = (data) =>{
   let currency = document.getElementById('currency');
   currency.value = data.currency
   // let choose_img = document.getElementById('productImage');
-  return {"data":data}
+  return { "data": data }
 }
 
-let clearInput=()=>{
+let clearInput = () => {
   let product_name = document.getElementById('name');
   product_name.value = ''
   let product = document.querySelector('.product_info img');
-  product.value =''
+  product.value = ''
   let product_type = document.getElementById('type');
-  product_type.value =''
+  product_type.value = ''
   let product_description = document.getElementById('text');
   product_description.value = ''
   let product_price = document.getElementById('productPrice');
   product_price.value = ''
   let currency = document.getElementById('currency');
-  currency.value = ''
+  currency.value = 'no'
 
 }
 let updateProduct = (event) => {
@@ -173,6 +174,9 @@ let updateProduct = (event) => {
   let product = products[index];
   showDataInputUpdate(product)
   document.querySelector('#createEditButton').textContent = 'Update';
+  info.forEach((element,index) => {
+    manageInfo(index, 'hide')    
+  });
   show(dom_product_dialog);
 }
 let removeProduct = (event) => {
@@ -187,6 +191,9 @@ let removeProduct = (event) => {
   renderProducts();
 }
 let onAddProduct = () => {
+  info.forEach((element,index) => {
+    manageInfo(index, 'hide')
+  });
   show(dom_product_dialog)
   document.getElementById('createEditButton').textContent = 'Create';
 };
@@ -198,22 +205,32 @@ let onSearchProduct = (event) => {
   let productList = document.querySelectorAll('.card');
   // console.log(productList);
   for (let spanItem of productList) {
-    console.log(spanItem.firstChild.lastChild.firstChild.textContent);
     let productTitle = spanItem.firstChild.lastChild.firstChild.textContent.toLocaleLowerCase();
-
     //update the style of the span 
     let productDisplay = "";
     // console.log(productTitle.indexOf (inputLower));
     if (productTitle.indexOf(inputLower) === -1) {
       productDisplay = "none";
-    }else {
+    } else {
       productDisplay = "block";
     }
     spanItem.style.display = productDisplay;
   };
 };
 //Cancel and Add -------------------------------------------
-let onCancel = (e) =>{
+// Manager info input required
+
+let manageInfo = (indexInfo, action) => {
+  if (action === 'show') {
+    info[indexInfo].style.display = 'flex'
+    info[indexInfo].parentElement.firstChild.nextSibling.style.border = '3px solid red';
+  }
+  else {
+    info[indexInfo].style.display = 'none'
+    info[indexInfo].parentElement.firstChild.nextSibling.style.border = '3px solid #e3e1e1';
+  }
+}
+let onCancel = (e) => {
   hide(dom_product_dialog);
 }
 let onCreateProduct = () => {
@@ -222,38 +239,67 @@ let onCreateProduct = () => {
   let product_description = document.getElementById('text').value;
   let product_price = document.getElementById('productPrice').value;
   let currency = document.getElementById('currency').value;
-  // let product = document.querySelector('.product_info img');
-  // let choose_img = document.getElementById('productImage').value;
-  let objData ={
+  let objData = {
     name: product_name,
-    type:product_type,
+    type: product_type,
     description: product_description,
     price: product_price,
     currency: currency,
   }
   // check required input
-  let product_input =  product_name !=='' && product_type !=='' && product_price !=='';
-  console.log(canCreate, product_input);
-  if(canCreate && product_input){
-    products.push(objData);
-  }else{
-  // Update vai index 
-  products[index] = objData;
+  let product_input = product_name !== '' && product_type !== '' && product_price !== '' && currency !== 'no';
+  if (product_input) {
+    if (canCreate) {
+      products.push(objData);
+      products.reverse()
+    }
+    else{
+      // Update vai index 
+      products[index] = objData;
+      canCreate = true
+    }
+    hide(dom_product_dialog);
+    //save to local storage
+    saveProducts();
+    // update to the view
+    renderProducts()
+    // clear input 
+    clearInput()
+
+  } else {
+    if (product_name === '') {
+      manageInfo(0, 'show')
+    }
+    else {
+      manageInfo(0, 'hide')
+    }
+    if (product_type === '') {
+      manageInfo(1, 'show')
+    }
+    else {
+      manageInfo(1, 'hide')
+    }
+    if (product_price === '') {
+      manageInfo(2, 'show')
+    }
+    else {
+      manageInfo(2, 'hide')
+    }
+    if (currency === 'no') {
+      manageInfo(3, 'show')
+    }
+    else {
+      manageInfo(3, 'hide')
+    }
   }
-  hide(dom_product_dialog);
-  //save to local storage
-  saveProducts();
-  // update to the view
-  renderProducts()
-  // clear input 
-  clearInput()
+
 }
-// saveProducts()
+saveProducts()
 loadProducts();
 renderProducts();
 
 let searchProduct = document
-.querySelector('#search_bar input');
+  .querySelector('#search_bar input');
 searchProduct.addEventListener('keyup', onSearchProduct)
 let btn_add = product_view.querySelector('#add_product');
 btn_add.addEventListener('click', onAddProduct);

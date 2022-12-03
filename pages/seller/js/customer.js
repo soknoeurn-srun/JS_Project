@@ -1,6 +1,6 @@
 let customerProducts = JSON.parse(localStorage.getItem('products'));
-const dom_products_container = document.querySelector('.dom_product_container')
 
+const dom_products_container = document.querySelector('.dom_product_container')
 
 let userData = [];
 //store user data in local storage--------------------------
@@ -21,81 +21,84 @@ let customerProduct = () => {
   customer_product.remove();
   customer_product = document.createElement("div");
   customer_product.className = "productCard";
-  for (let index = 0 ; index < customerProducts.length; index++) {
-    let product = customerProducts[index];
-
-    //Create a new div (class card_show)
-    let card = document.createElement("div");
-    card.className = "card_show";
-    card.dataset.index = index;
-    customer_product.appendChild(card);
-    
-    let productInfo = document.createElement("div");
-    productInfo.className = 'product_info';
-    card.appendChild(productInfo);
-
-    let product_img = document.createElement("div");
-    product_img.className = 'product';
-    productInfo.appendChild(product_img);
-
-    let laptop_img = document.createElement('img');
-    laptop_img.src = '../../images/macBook.png';
-    product_img.appendChild(laptop_img);
-
-    let product_detail = document.createElement('div');
-    product_detail.className = 'product_detail';
-    productInfo.appendChild(product_detail);
-
-    let product_name = document.createElement('p');
-    product_name.className = 'name';
-    product_name.textContent = product.name;
-    product_detail.appendChild(product_name);
-
-    let product_type = document.createElement('p');
-    product_type.className = 'type';
-    product_type.textContent = product.type;
-    product_detail.appendChild(product_type);
-
-    let description_link = document.createElement('a');
-    description_link.href = 'pages/detail/detail_product.html';
-    product_detail.appendChild(description_link);
-
-    let product_description = document.createElement('p');
-    product_description.className = 'description';
-    product_description.textContent = product.description;
-    description_link.appendChild(product_description);
-
-    let product_price = document.createElement('p');
-    product_price.className = 'price';
-    product_price.textContent = product.price + product.currency;
-    product_detail.appendChild(product_price);
-
-    let rate = document.createElement('div');
-    rate.className = 'rate';
-    card.appendChild(rate);
-
-    for (let i =0 ; i < 3 ; i++) {
-      let star_full = document.createElement('img');
-      star_full.src = "images/star1.png";
-      rate.appendChild(star_full);
+  if (customerProducts != null) {
+    for (let index = 0 ; index < customerProducts.length; index++) {
+      let product = customerProducts[index];
+  
+      //Create a new div (class card_show)
+      let card = document.createElement("div");
+      card.className = "card_show";
+      card.dataset.index = index;
+      customer_product.appendChild(card);
+      
+      let productInfo = document.createElement("div");
+      productInfo.className = 'product_info';
+      card.appendChild(productInfo);
+  
+      let product_img = document.createElement("div");
+      product_img.className = 'product';
+      productInfo.appendChild(product_img);
+  
+      let laptop_img = document.createElement('img');
+      laptop_img.src = '../../images/macBook.png';
+      product_img.appendChild(laptop_img);
+  
+      let product_detail = document.createElement('div');
+      product_detail.className = 'product_detail';
+      productInfo.appendChild(product_detail);
+  
+      let product_name = document.createElement('p');
+      product_name.className = 'name';
+      product_name.textContent = product.name;
+      product_detail.appendChild(product_name);
+  
+      let product_type = document.createElement('p');
+      product_type.className = 'type';
+      product_type.textContent = product.type;
+      product_detail.appendChild(product_type);
+  
+      let description_link = document.createElement('a');
+      description_link.href = 'pages/detail/detail_product.html';
+      description_link.addEventListener('click',onClickDetail);
+      product_detail.appendChild(description_link);
+  
+      let product_description = document.createElement('p');
+      product_description.className = 'description';
+      product_description.textContent = product.description;
+      description_link.appendChild(product_description);
+  
+      let product_price = document.createElement('p');
+      product_price.className = 'price';
+      product_price.textContent = product.price + product.currency;
+      product_detail.appendChild(product_price);
+  
+      let rate = document.createElement('div');
+      rate.className = 'rate';
+      card.appendChild(rate);
+  
+      for (let i =0 ; i < 3 ; i++) {
+        let star_full = document.createElement('img');
+        star_full.src = "images/star1.png";
+        rate.appendChild(star_full);
+      }
+      for (let n = 0 ;  n < 2; n++){
+        let star = document.createElement('img');
+        star.src = "images/star-n.png"
+        rate.appendChild(star);
+      };
+      let addToCard = document.createElement('div');
+      addToCard.className = 'addToCart';
+      card.appendChild(addToCard);
+      
+      let btn_addToCart = document.createElement('button');
+      btn_addToCart.id = 'addToCart';
+      btn_addToCart.textContent = 'Add to Cart';
+      btn_addToCart.addEventListener('click',onClickAddToCart)
+      addToCard.appendChild(btn_addToCart);
     }
-    for (let n = 0 ;  n < 2; n++){
-      let star = document.createElement('img');
-      star.src = "images/star-n.png"
-      rate.appendChild(star);
-    };
-    let addToCard = document.createElement('div');
-    addToCard.className = 'addToCart';
-    card.appendChild(addToCard);
-    
-    let btn_addToCart = document.createElement('button');
-    btn_addToCart.id = 'addToCart';
-    btn_addToCart.textContent = 'Add to Cart';
-    btn_addToCart.addEventListener('click',onClickAddToCart)
-    addToCard.appendChild(btn_addToCart);
+    dom_products_container.appendChild(customer_product)
+    console.log(customer_product);
   }
-  dom_products_container.appendChild(customer_product)
-  // console.log(customer_product);
 };
 
 //TO SEARCH PRODUCT FOR CUSTOMERS----------------------------
@@ -136,11 +139,28 @@ let userDataClick = () => {
   loadProductUser();
 };
 
+//store product detail in local storage==============
+let myProductDetail = [];
+let saveDetail = () => {
+  localStorage.setitem('myProductDetail', JSON.stringify(myProductDetail));
+};
+//To access data that user want to click on description detail==============
+let onClickDetail = (event) => {
+  index = event.target.parentElement.parentElement.parentElement.parentElement.dataset.index;
+  let detail = customerProducts[index];
+  myProductDetail.push(detail);
+  console.log(myProductDetail);
+  // saveDetail();
+};
 customerProduct()
 
+//On click to product add to cart==========================
 let userClicked = document.querySelector('#addToCart');
 userClicked.addEventListener('click', onClickAddToCart);
 
+//On click on product description to detail================
+let a = document.querySelector('a');
+a.addEventListener('click', onClickDetail);
 //On search bar
 let searchProduct = document
 .querySelector('#search_bar input');

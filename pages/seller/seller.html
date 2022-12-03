@@ -7,6 +7,7 @@
   <title>The Gold Laptop Shop</title>
   <link rel="shortcut icon" href="../../images/url_logo.png" type="image/x-icon">
   <link rel="stylesheet" href="../../css/main.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="js/seller.js" defer></script>
 </head>
@@ -65,29 +66,65 @@
       <dialog open>
         <header>Create a new Product</header>
         <div class="form_container">
-          <div class="form_content">
-            <label for="">Name:</label>
-            <input type="text" id="name" placeholder="Product's name..." required>
-          </div>
-          <div class="form_content">
-            <label for="">Type:</label>
-            <input type="text" id="type" placeholder="Product's Type..." required>
-          </div>
+          <section>
+            <div class="form_content">
+              <label for="">Name:</label>
+              <div class="inputField">
+                <input type="text" class="requiredField" id="name" placeholder="Product's name..." required>
+                <div class="infoRequired">
+                  <span class="material-symbols-outlined">
+                    info
+                    </span>
+                    <span>Enter a name</span>
+                </div>
+              </div>
+            </div>
+            <div class="form_content">
+              <label for="">Type:</label>
+              <div class="inputField">
+                <input type="text" class="requiredField" id="type" placeholder="Product's Type..." required>
+                <div class="infoRequired">
+                  <span class="material-symbols-outlined">
+                    info
+                    </span>
+                    <span>Enter a type</span>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div class="form_content">
+              <label for="">Price:</label>
+              <div class="inputField">
+                <input type="number" class="requiredField" id="productPrice" placeholder="Product's Price..." required>
+                <div class="infoRequired">
+                  <span class="material-symbols-outlined">
+                    info
+                    </span>
+                    <span>Enter a price</span>
+                </div>
+              </div>
+            </div>
+            <div class="form_content">
+              <label for="">Currency:</label>
+              <div class="inputField">
+                <select name="" id="currency" class="requiredField">
+                  <option value="no" selected disabled>Choose product's type price</option>
+                  <option value="$">$</option>
+                  <option value="៛">៛</option>
+                </select>
+                <div class="infoRequired">
+                  <span class="material-symbols-outlined">
+                    info
+                    </span>
+                    <span>Choose a currency</span>
+                </div>
+              </div>
+            </div>
+          </section>
           <div class="form_content">
             <label for="">Description:</label>
             <textarea name="" id="text" placeholder="Product detail"></textarea>
-          </div>
-          <div class="form_content">
-            <label for="">Price:</label>
-            <input type="text" id="productPrice" placeholder="Product's Price..." required>
-          </div>
-          <div class="form_content">
-            <label for="">Currency:</label>
-            <select name="" id="currency">
-              <option value="" selected disabled>Choose product's type price</option>
-              <option value="$">$</option>
-              <option value="៛">៛</option>
-            </select>
           </div>
           <div class="form_content">
             <label for="">Product Image:</label>

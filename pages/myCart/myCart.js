@@ -13,7 +13,7 @@ let renderProductCart = () => {
   //Loop to create all element in card
   for (let index = 0 ; index < userCartProduct.length; index++) {
     let product = userCartProduct[index];
-
+    
     let cartDetail = document.createElement('div');
     cartDetail.className = 'cartDetail';
     cartContainer.appendChild(cartDetail);
