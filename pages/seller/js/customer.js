@@ -1,8 +1,12 @@
 let customerProducts = JSON.parse(localStorage.getItem('products'));
 
 const dom_products_container = document.querySelector('.dom_product_container')
+let inputRadios = document.querySelectorAll('input[type=radio]')
 
 let userData = [];
+let valueFromstorage = () => {
+  customerProducts = JSON.parse(localStorage.getItem('products'));
+};
 //store user data in local storage--------------------------
 let saveData = () => {
   localStorage.setItem('userData', JSON.stringify(userData));
@@ -24,7 +28,6 @@ let customerProduct = () => {
   if (customerProducts != null) {
     for (let index = 0 ; index < customerProducts.length; index++) {
       let product = customerProducts[index];
-  
       //Create a new div (class card_show)
       let card = document.createElement("div");
       card.className = "card_show";
@@ -58,7 +61,8 @@ let customerProduct = () => {
       product_detail.appendChild(product_type);
   
       let description_link = document.createElement('a');
-      description_link.href = 'pages/detail/detail_product.html';
+      // description_link.href = 'pages/detail/detail_product.html';
+      description_link.href = '#';
       description_link.addEventListener('click',onClickDetail);
       product_detail.appendChild(description_link);
   
@@ -97,9 +101,16 @@ let customerProduct = () => {
       addToCard.appendChild(btn_addToCart);
     }
     dom_products_container.appendChild(customer_product)
-    console.log(customer_product);
   }
+  valueFromstorage()
 };
+
+// Categories ----------------------------
+function categories(value) {
+  let getFilter = customerProducts.filter(item=>{return item.type === value})
+  customerProducts = getFilter
+  customerProduct()
+}
 
 //TO SEARCH PRODUCT FOR CUSTOMERS----------------------------
 let onSearchProduct = (event) => {
@@ -123,12 +134,32 @@ let onSearchProduct = (event) => {
 };
 //ON CLICK ADD TO CART ----------------------------------------
 let onClickAddToCart = (event) => {
+  let objDetails = {}
+  let quantity = 0
   index = event.target.parentElement.parentElement.dataset.index;
   let product = customerProducts[index];
+  if(userData.length===0){
+    quantity += 1
+    objDetails.quantity = quantity;
+    objDetails.index = index
+    objDetails.product = product
+    userData.push(objDetails);
+  }
+  else{
+    let checkExisting = userData.filter(item=>{return item.index === index})
+    if(checkExisting.length ===1){
+      checkExisting[0].quantity += 1
+    }else {
+      quantity += 1
+    objDetails.quantity = quantity;
+    objDetails.index = index
+    objDetails.product = product
+    userData.push(objDetails);
+    }
+  }
   //To get data from user click
-  userData.push(product);
-  console.log(index);
-  userDataClick()
+  console.log('data',userData);
+  // userDataClick()
 }
 //To count the number of products user clicked on
 let userDataClick = () => {
@@ -142,26 +173,30 @@ let userDataClick = () => {
 //store product detail in local storage==============
 let myProductDetail = [];
 let saveDetail = () => {
-  localStorage.setitem('myProductDetail', JSON.stringify(myProductDetail));
+  localStorage.setItem('myProductDetail', JSON.stringify(myProductDetail));
 };
 //To access data that user want to click on description detail==============
 let onClickDetail = (event) => {
+  myProductDetail =[]
   index = event.target.parentElement.parentElement.parentElement.parentElement.dataset.index;
   let detail = customerProducts[index];
   myProductDetail.push(detail);
+  // myProductDetail = [];
   console.log(myProductDetail);
-  // saveDetail();
+  saveDetail();
 };
-customerProduct()
 
 //On click to product add to cart==========================
-let userClicked = document.querySelector('#addToCart');
-userClicked.addEventListener('click', onClickAddToCart);
+// let userClicked = document.querySelector('#addToCart');
+// userClicked.addEventListener('click', onClickAddToCart);
 
-//On click on product description to detail================
-let a = document.querySelector('a');
-a.addEventListener('click', onClickDetail);
+// //On click on product description to detail================
+// let a = document.querySelector('a');
+// a.addEventListener('click', onClickDetail);
 //On search bar
+customerProduct()
 let searchProduct = document
 .querySelector('#search_bar input');
 searchProduct.addEventListener('keyup', onSearchProduct)
+inputRadios.forEach(element => {element.addEventListener('click',function () {categories(element.value)})});
+valueFromstorage()

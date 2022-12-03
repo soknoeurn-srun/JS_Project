@@ -1,4 +1,5 @@
 @import'mixin/mixin';
+@import 'variables';
 .product_container {
   // height: 80vh;
   button {
@@ -8,7 +9,6 @@
   button:hover {
     background: $bg_color;
   }
-  @import 'variables';
   width: 60%;
   margin: 10px auto ;
   .card {
