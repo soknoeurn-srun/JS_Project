@@ -40,6 +40,55 @@
 
     <!-- TO SHOW CARD THAT CUSTOMR CLICKED -->
     <section id="productCart">
+      <div class="check_out_content" style="display: none;">
+
+        <div class="check_out" onclick="showCard()" >
+          <div class="card_name">
+            <label for="">Cart's name</label>
+            <div class="cardRequired">
+              <input type="text" placeholder="Card name ..."><br>
+              <div class="info" style="display: none; color: red;">
+                <span class="material-symbols-outlined">
+                  info
+                  </span>
+                  <span>Enter card's name</span>
+              </div>
+            </div>
+  
+          </div>
+          <div class="card_number">
+         outlined   <label for="">Cart's number</label>
+            <div class="cardRequired">
+              <input type="number" placeholder="Card number ..."><br>
+              <div class="info" style="display: none; color: red;>
+                <span class="material-symbols-outlined">
+                  info
+                  </span>
+                  <span>Enter card's number</span>
+  
+              </div>
+            </div>
+          </div>
+          <div class="card_expired">
+            <label for="">Expired date</label>
+            <div class="cardRequired">
+              <input type="date"  placeholder="Expired date ..."><br>
+              <div class="info" style="display: none; color: red";>
+                <span class="material-symbols-outlined">
+                  info
+                  </span>
+                  <span>Enter expired date</span>
+  
+              </div>
+            </div>
+          </div>
+          <input type="submit" onclick="submitCheckOut()" value="Submit" ondblclick="onSubmit()">
+        </div>
+      </div>
+      <div class="total_price">
+        <h2>Total: 00.00$</h2>
+        <button>BUY NOW</button>
+      </div>
       <div class="cart_container">
         <!-- <div class="cartDetail">
           <div class="product_image">

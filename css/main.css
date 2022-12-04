@@ -149,8 +149,13 @@ body {
 .product_container .card .product_info {
   display: flex;
 }
-.product_container .card .product_info img {
-  width: 30%;
+.product_container .card .product_info .img_show {
+  width: 300px;
+  margin-right: 4%;
+}
+.product_container .card .product_info .img_show img {
+  width: 100%;
+  object-fit: cover;
 }
 .product_container .card .product_info .detail {
   display: flex;
@@ -553,5 +558,59 @@ footer .contact .info i {
   width: 100%;
 }
 #productCart .cart_container .cartDetail .delete_card:hover {
+  cursor: pointer;
+}
+
+.check_out_content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 10;
+}
+.check_out_content .check_out {
+  position: fixed;
+  top: 5vh;
+  left: 20%;
+  width: 60%;
+  z-index: 100;
+  margin: 10vh;
+  padding: 10px;
+  background: #e3e1e1;
+  border-radius: 7px;
+  box-shadow: 0 0 5px 0.5px orange;
+  border: none;
+}
+.check_out_content .check_out input {
+  padding: 10px;
+  width: 97%;
+  box-sizing: border-box;
+  border-radius: 7px;
+  border: none;
+  outline: none;
+}
+.check_out_content .check_out input[type=submit] {
+  margin-top: 2%;
+  background: orange;
+  font-size: 20px;
+}
+.check_out_content .check_out label {
+  margin-top: 2%;
+}
+
+.total_price button {
+  margin-top: 5%;
+  padding: 7px;
+  border: none;
+  border-radius: 7px;
+  border: 2px solid orange;
+  font-size: 15px;
+  background: transparent;
+  transition: ease-in-out 0.3s;
+}
+.total_price button:hover {
+  background: orange;
   cursor: pointer;
 }/*# sourceMappingURL=main.css.map */

@@ -21,9 +21,14 @@
     justify-content: space-between;
     .product_info {
       display: flex;
-      img {
-        // background: #000;
-        width: 30%;
+      .img_show {
+        width: 300px;
+        margin-right: 4%;
+        img {
+          // background: #000;
+          width: 100%;
+          object-fit: cover;
+        }
       }
       .detail {
         display: flex;

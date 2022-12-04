@@ -1,5 +1,4 @@
 let customerProducts = JSON.parse(localStorage.getItem('products'));
-
 const dom_products_container = document.querySelector('.dom_product_container')
 let inputRadios = document.querySelectorAll('input[type=radio]')
 
@@ -43,7 +42,7 @@ let customerProduct = () => {
       productInfo.appendChild(product_img);
   
       let laptop_img = document.createElement('img');
-      laptop_img.src = '../../images/macBook.png';
+      laptop_img.src = product.image;
       product_img.appendChild(laptop_img);
   
       let product_detail = document.createElement('div');
@@ -107,8 +106,12 @@ let customerProduct = () => {
 
 // Categories ----------------------------
 function categories(value) {
-  let getFilter = customerProducts.filter(item=>{return item.type === value})
-  customerProducts = getFilter
+  if (value === 'all') {
+    customerProducts = customerProducts;
+  }else {
+    let getFilter = customerProducts.filter(item=>{return item.type === value})
+    customerProducts = getFilter
+  }
   customerProduct()
 }
 
@@ -132,6 +135,7 @@ let onSearchProduct = (event) => {
     spanItem.style.display = productDisplay;
   };
 };
+
 //ON CLICK ADD TO CART ----------------------------------------
 let onClickAddToCart = (event) => {
   let objDetails = {}
@@ -158,18 +162,25 @@ let onClickAddToCart = (event) => {
     }
   }
   //To get data from user click
-  console.log('data',userData);
-  // userDataClick()
+  saveUserData()
+  // userDataClick
+  userDataClick()
 }
+//count the number of product==================================
 //To count the number of products user clicked on
 let userDataClick = () => {
   let userCart = userData.length;
-  document.querySelector('article').innerHTML = userCart;
+  document.querySelector('#cart').textContent = userCart;
   // console.log(userCart);
-  saveData();
-  loadProductUser();
+  // onClickAddToCart();
+  // loadProductUser();
 };
 
+
+let saveUserData = () => {
+  localStorage.setItem('userData', JSON.stringify(userData));
+
+}
 //store product detail in local storage==============
 let myProductDetail = [];
 let saveDetail = () => {
@@ -186,17 +197,20 @@ let onClickDetail = (event) => {
   saveDetail();
 };
 
-//On click to product add to cart==========================
-// let userClicked = document.querySelector('#addToCart');
-// userClicked.addEventListener('click', onClickAddToCart);
+// let imgeUpload = ''
+// let loadFile=(event)=>{
+//   let file = event.target.files[0]
+//   let reader = new FileReader()
+//   reader.addEventListener("load", () => {
+//     imgeUpload = reader.result;
+//   });
+//   reader.readAsDataURL(file);
+// }
 
-// //On click on product description to detail================
-// let a = document.querySelector('a');
-// a.addEventListener('click', onClickDetail);
-//On search bar
 customerProduct()
 let searchProduct = document
 .querySelector('#search_bar input');
 searchProduct.addEventListener('keyup', onSearchProduct)
 inputRadios.forEach(element => {element.addEventListener('click',function () {categories(element.value)})});
+// productImage.addEventListener('click',function(){uploadFile()})
 valueFromstorage()

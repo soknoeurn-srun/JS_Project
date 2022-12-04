@@ -4,12 +4,12 @@ let info = document.querySelectorAll('.infoRequired');
 //DATA-----------------------------------------------------
 let products = [
   {
-    name: 'MSI Pro 2022',
+    name: 'MAC BOOK Pro 2022',
     type: 'MSI',
     description: 'Core i7,RAM 16GB,Core 10, Thread 20, SSD 512GB',
     price: 999.99,
     currency: '$',
-    image: 'c/'
+    image: 'https://o.remove.bg/downloads/2ebea5ba-9ec7-471d-8afb-41c1f70ac5f8/51dafnlz6wL._AC_SX450_-removebg-preview.png'
   },
   {
     name: 'ASUS Gaming',
@@ -17,15 +17,15 @@ let products = [
     description: 'Core i7,RAM 16GB,Core 10, Thread 20, SSD 512GB',
     price: 1100.99,
     currency: '$',
-    image: 'c/'
+    image: 'https://dlcdnwebimgs.asus.com/gain/3BF8E8FB-3ABB-4DE1-92C6-210B28AC331A'
   },
   {
-    name: 'ASUS Gaming',
+    name: 'ASUS Gaming 2020',
     type: 'ASUS',
     description: 'Core i7,RAM 16GB,Core 10, Thread 20, SSD 512GB',
     price: 1100.99,
     currency: '$',
-    image: 'c/'
+    image: 'https://o.remove.bg/downloads/86432458-8709-441c-a5d3-927b21f94539/663-6636742_asus-rog-zephyrus-s-gx502gw-xb76-class-asus-removebg-preview.png'
   },
   {
     name: 'Microsoft Surface',
@@ -33,7 +33,7 @@ let products = [
     description: 'Core i7,RAM 16GB,Core 10, Thread 20, SSD 512GB',
     price: 1999.99,
     currency: '$',
-    image: ' '
+    image: 'https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4LqQX?ver=1f00'
   },
   {
     name: 'MSI 2020',
@@ -41,7 +41,7 @@ let products = [
     description: 'Core i5,RAM 8GB,Core 4, Thread 6, SSD 512GB',
     price: 499.99,
     currency: '$',
-    image: 'c/'
+    image: 'https://storage-asset.msi.com/event/2020/nb/2020-Q3-amd-raise-the-game-nb/images/MSI_NB_Bravo_17_RGB.png'
   }
 ];
 
@@ -85,9 +85,12 @@ let renderProducts = () => {
     productInfo.className = 'product_info';
 
     // //Create image
+    let image_container = document.createElement('div');
+    image_container.className = 'img_show';
+    productInfo.appendChild(image_container);
     let product_img = document.createElement('img');
-    product_img.src = '../../images/macBook.png';
-    productInfo.appendChild(product_img);
+    product_img.src = product.image;
+    image_container.appendChild(product_img);
 
     //create a new div to detail more about product--------------------
     let detail = document.createElement('div');
@@ -194,6 +197,7 @@ let onAddProduct = () => {
   info.forEach((element,index) => {
     manageInfo(index, 'hide')
   });
+  clearInput()
   show(dom_product_dialog)
   document.getElementById('createEditButton').textContent = 'Create';
 };
@@ -245,7 +249,9 @@ let onCreateProduct = () => {
     description: product_description,
     price: product_price,
     currency: currency,
+    image: imgeUpload
   }
+  imgeUpload = ''
   // check required input
   let product_input = product_name !== '' && product_type !== '' && product_price !== '' && currency !== 'no';
   if (product_input) {
@@ -258,6 +264,7 @@ let onCreateProduct = () => {
       products[index] = objData;
       canCreate = true
     }
+    console.log('dd', products);
     hide(dom_product_dialog);
     //save to local storage
     saveProducts();
@@ -293,6 +300,15 @@ let onCreateProduct = () => {
     }
   }
 
+}
+let imgeUpload = ''
+let loadFile=(event)=>{
+  let file = event.target.files[0]
+  let reader = new FileReader()
+  reader.addEventListener("load", () => {
+    imgeUpload = reader.result;
+  });
+  reader.readAsDataURL(file);
 }
 saveProducts()
 loadProducts();
