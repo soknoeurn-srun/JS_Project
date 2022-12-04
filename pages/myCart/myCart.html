@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Gold Laptop Shop</title>
+  <link rel="shortcut icon" href="../../images/url_logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="../../css/main.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="../myCart/myCart.js" defer></script>
+</head>
+<body>
+  <section class="container">
+    <nav>
+      <div class="logo">
+        <a href="../../index.html">
+          <img src="../../images/gold_laptop2.png" alt="">
+        </a>
+      </div>
+      <div class="search">
+        <div id="search_bar">
+          <div class="icon">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div>
+          <input type="search" placeholder="Search Your Favorite Laptop..">
+        </div>
+        <div class="click_search">Search</div>
+      </div>
+      <div class="user">
+        <i class="fa fa-shopping-cart" aria-hidden="true">
+          <article id="cart">
+            0
+          </article>
+        </i>
+      
+        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+      </div>
+    </nav>
+
+    <!-- TO SHOW CARD THAT CUSTOMR CLICKED -->
+    <section id="productCart">
+      <div class="check_out_content" style="display: none;">
+
+        <div class="check_out" onclick="showCard()" >
+          <div class="card_name">
+            <label for="">Cart's name</label>
+            <div class="cardRequired">
+              <input type="text" placeholder="Card name ..."><br>
+              <div class="info" style="display: none; color: red;">
+                <span class="material-symbols-outlined">
+                  info
+                  </span>
+                  <span>Enter card's name</span>
+              </div>
+            </div>
+  
+          </div>
+          <div class="card_number">
+         outlined   <label for="">Cart's number</label>
+            <div class="cardRequired">
+              <input type="number" placeholder="Card number ..."><br>
+              <div class="info" style="display: none; color: red;>
+                <span class="material-symbols-outlined">
+                  info
+                  </span>
+                  <span>Enter card's number</span>
+  
+              </div>
+            </div>
+          </div>
+          <div class="card_expired">
+            <label for="">Expired date</label>
+            <div class="cardRequired">
+              <input type="date"  placeholder="Expired date ..."><br>
+              <div class="info" style="display: none; color: red";>
+                <span class="material-symbols-outlined">
+                  info
+                  </span>
+                  <span>Enter expired date</span>
+  
+              </div>
+            </div>
+          </div>
+          <input type="submit" onclick="submitCheckOut()" value="Submit" ondblclick="onSubmit()">
+        </div>
+      </div>
+      <div class="total_price">
+        <h2>Total: 00.00$</h2>
+        <button>BUY NOW</button>
+      </div>
+      <div class="cart_container">
+        <!-- <div class="cartDetail">
+          <div class="product_image">
+            <img src="../../images/macBook.png" alt="">
+          </div>
+          <div class="detail">
+            <div class="detail_more">
+              <p>Brand: name</p>
+              <p>Type: Type name</p>
+              <p>Description: Description</p>
+              <p>Price: 1000$</p>
+            </div>
+            <div class="btn">
+              <div class="cancel" style="display: none;">
+                <a href="../../index.html">
+                  <button>Cancel</button>
+                </a>
+              </div>
+              <div class="add">
+                <button>BUY NOW</button>
+              </div>
+            </div
+          </div>
+          <div class="delete_card">
+            <img src= "../../images/delete.png" alt="">
+          </div>
+        </div> -->
+      </div>
+    </section>
+    <section id="cardBank">
+      
+    </section>
+    <footer>
+      <div class="about_us">
+        <h3>About Us</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perferendis error quod sunt sequi! Explicabo vel, nisi repellat vero nobis.</p>
+        <div class="follow">
+          <i class="fa fa-facebook-square" aria-hidden="true"></i>
+          <i class="fa fa-instagram" aria-hidden="true"></i>
+          <i class="fa fa-twitter-square" aria-hidden="true"></i>
+        </div>
+
+      </div>
+      <div class="open_hour">
+        <h3>Opening Hours</h3>
+        <p>Our Support Available to hel you 24 hours a day. We provide Our best</p>
+        <ul>
+          <li>Sun - Thu : 08:00 am - 20:00 am</li>
+          <li>Friday : 09:00 am - 00:00 am</li>
+          <li>Saturday : We are CLOSED !</li>
+        </ul>
+      </div>
+      <div class="contact">
+        <h3>Contact info</h3>
+        <div class="info">
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+          <p>Lorem@gmail.com</p>
+        </div>
+
+        <div class="info">
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+          <p>Phnome Penh</p>
+        </div>
+
+        <div class="info">
+          <i class="fa fa-phone" aria-hidden="true"></i>
+            <p>555-847-998</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

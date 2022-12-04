@@ -1,11 +1,62 @@
 @import'mixin/mixin';
+@import 'variables';
 .product_container {
-  height: 80vh;
+  // height: 80vh;
   button {
     margin: 2% 0 2% 2%;
     @include buttonAdd
   }
   button:hover {
     background: $bg_color;
+  }
+  width: 60%;
+  margin: 10px auto ;
+  .card {
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+    background: rgb(123, 122, 122);
+    border-radius: $boder_raduis;
+    display: flex;
+    justify-content: space-between;
+    .product_info {
+      display: flex;
+      .img_show {
+        width: 300px;
+        margin-right: 4%;
+        img {
+          // background: #000;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      .detail {
+        display: flex;
+        flex-direction: column;
+        p {
+          font-size: 17px;
+          // background: #000;
+          text-align: left;
+          color: $text_color;
+          line-height: 30px;
+        }
+        p:last-child {
+          text-align: left;
+          color: $bg_color;
+          font-weight: bold;
+        }
+      }
+    }
+    .actions {
+      width: 50%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      img {
+        width: 40px;
+        height: 40px;
+        margin: 10px;
+      }
+    }
   }
 }

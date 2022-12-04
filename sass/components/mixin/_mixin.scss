@@ -9,3 +9,12 @@
   background: transparent;
   transition: ease-in-out .3s;
 }
+@mixin smallButton {
+  padding: 7px;
+  border: none;
+  border-radius: $boder_raduis;
+  border: 2px solid $bg_color;
+  font-size: 15px;
+  background: transparent;
+  transition: ease-in-out .3s;
+}

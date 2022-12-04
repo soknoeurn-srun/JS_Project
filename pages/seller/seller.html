@@ -7,6 +7,7 @@
   <title>The Gold Laptop Shop</title>
   <link rel="shortcut icon" href="../../images/url_logo.png" type="image/x-icon">
   <link rel="stylesheet" href="../../css/main.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="js/seller.js" defer></script>
 </head>
@@ -19,11 +20,11 @@
         </a>
       </div>
       <div class="search">
-        <div class="search_bar">
+        <div id="search_bar">
           <div class="icon">
             <i class="fa fa-search" aria-hidden="true"></i>
           </div>
-          <input type="search" placeholder="Search Your Favorite Laptop..">
+          <input type="text" placeholder="Search Your Favorite Laptop..">
         </div>
         <div class="click_search">Search</div>
       </div>
@@ -34,15 +35,15 @@
     </nav>
     <!-- End navigation bar -->
     <div class="switch">
-      <a href="../../index.html" class="customer">Customer</a>
-      <a href="#" class="seller">Seller</a>
+      <a href="../../index.html">LAPTOP</a>
+      <a href="#" class="seller customer">EDIT PRODUCT</a>
     </div>
     <section class="product_container">
       <div class="product_view">
         <!-- When click on button ADD -->
-        <button id="add_product" onclick="onAdd()">+Add Product</button>
+        <button id="add_product" onclick="onAddProduct()">+Add Product</button>
         <div id="products_container">
-          <!-- TO create CARD of each products -->
+          <!-- TO CREATE CARD OF EACH PRODUCT -->
           <!-- <div class="card" data-index="0">
             <div class="product_info">
               <img src="../../images/macBook.png" alt="">
@@ -65,34 +66,82 @@
       <dialog open>
         <header>Create a new Product</header>
         <div class="form_container">
-          <div class="form_content">
-            <label for="">Name:</label>
-            <input type="text" placeholder="Product's name...">
-          </div>
+          <section>
+            <div class="form_content">
+              <label for="">Name:</label>
+              <div class="inputField">
+                <input type="text" class="requiredField" id="name" placeholder="Product's name..." required>
+                <div class="infoRequired">
+                  <span class="material-symbols-outlined">
+                    info
+                    </span>
+                    <span>Enter a name</span>
+                </div>
+              </div>
+            </div>
+            <div class="form_content">
+              <label for="">Type:</label>
+              <div class="inputField">
+                <select type="text" class="requiredField" id="type"  placeholder="Product's Type..." required>
+                  <option value="no" selected disabled>Choose model type</option>
+                  <option value="ACER">ACER</option>
+                  <option value="APPLE">APPLE</option>
+                  <option value="ASUS">ASUS</option>
+                  <option value="DELL">DELL</option>
+                  <option value="LENOVO">LENOVO</option>
+                  <option value="MSI">MSI</option>
+                </select>
+                <div class="infoRequired">
+                  <span class="material-symbols-outlined">
+                    info
+                    </span>
+                    <span>Enter a type</span>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div class="form_content">
+              <label for="">Price:</label>
+              <div class="inputField">
+                <input type="number" class="requiredField" id="productPrice" placeholder="Product's Price..." required>
+                <div class="infoRequired">
+                  <span class="material-symbols-outlined">
+                    info
+                    </span>
+                    <span>Enter a price</span>
+                </div>
+              </div>
+            </div>
+            <div class="form_content">
+              <label for="">Currency:</label>
+              <div class="inputField">
+                <select name="" id="currency" class="requiredField">
+                  <option value="no" selected disabled>Choose product's type price</option>
+                  <option value="$">$</option>
+                  <option value="៛">៛</option>
+                </select>
+                <div class="infoRequired">
+                  <span class="material-symbols-outlined">
+                    info
+                    </span>
+                    <span>Choose a currency</span>
+                </div>
+              </div>
+            </div>
+          </section>
           <div class="form_content">
             <label for="">Description:</label>
-            <textarea name="" id="" placeholder="Product detail"></textarea>
-          </div>
-          <div class="form_content">
-            <label for="">Price:</label>
-            <input type="text" placeholder="Product's Price...">
-          </div>
-          <div class="form_content">
-            <label for="">Currency:</label>
-            <select name="" id="">
-              <option value="" selected disabled>Choose product's type price</option>
-              <option value="$">$</option>
-              <option value="៛">៛</option>
-            </select>
+            <textarea name="" id="text" placeholder="Product detail"></textarea>
           </div>
           <div class="form_content">
             <label for="">Product Image:</label>
-            <input type="file" >
+            <input type="file" id="productImage" class="upload" accept="image/*" onchange="loadFile(event)">
           </div>
         </div>
         <div class="button">
           <button onclick="onCancel()">Cancel</button>
-          <button onclick="onAdd()">Create</button>
+          <button id="createEditButton" onclick="onCreateProduct()">Create</button>
         </div>
       </dialog>
     </div>
@@ -106,7 +155,6 @@
           <i class="fa fa-instagram" aria-hidden="true"></i>
           <i class="fa fa-twitter-square" aria-hidden="true"></i>
         </div>
-
       </div>
       <div class="open_hour">
         <h3>Opening Hours</h3>
