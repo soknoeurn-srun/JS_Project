@@ -9,7 +9,7 @@ let products = [
     description: 'Core i7,RAM 16GB,Core 10, Thread 20, SSD 512GB',
     price: 999.99,
     currency: '$',
-    image: 'https://o.remove.bg/downloads/2ebea5ba-9ec7-471d-8afb-41c1f70ac5f8/51dafnlz6wL._AC_SX450_-removebg-preview.png'
+    image: 'https://o.remove.bg/downloads/b254e989-291e-4304-89dd-ef5b1d5bd307/8619-removebg-preview.png'
   },
   {
     name: 'ASUS Gaming',
@@ -25,7 +25,7 @@ let products = [
     description: 'Core i7,RAM 16GB,Core 10, Thread 20, SSD 512GB',
     price: 1100.99,
     currency: '$',
-    image: 'https://o.remove.bg/downloads/86432458-8709-441c-a5d3-927b21f94539/663-6636742_asus-rog-zephyrus-s-gx502gw-xb76-class-asus-removebg-preview.png'
+    image: 'https://o.remove.bg/downloads/9c4c42cc-a9a3-4cb3-8711-e5e54170b6cb/rog-flow-x16-removebg-preview.png'
   },
   {
     name: 'Microsoft Surface',

@@ -7,6 +7,7 @@
   <title>The Gold Laptop Shop</title>
   <link rel="shortcut icon" href="../../images/url_logo.png" type="image/x-icon">
   <link rel="stylesheet" href="../../css/main.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="../myCart/myCart.js" defer></script>
 </head>
@@ -42,12 +43,12 @@
     <section id="productCart">
       <div class="check_out_content" style="display: none;">
 
-        <div class="check_out" onclick="showCard()" >
+        <div class="check_out">
           <div class="card_name">
             <label for="">Cart's name</label>
             <div class="cardRequired">
               <input type="text" placeholder="Card name ..."><br>
-              <div class="info" style="display: none; color: red;">
+              <div class="info">
                 <span class="material-symbols-outlined">
                   info
                   </span>
@@ -57,15 +58,14 @@
   
           </div>
           <div class="card_number">
-         outlined   <label for="">Cart's number</label>
+          <label for="">Cart's number</label>
             <div class="cardRequired">
               <input type="number" placeholder="Card number ..."><br>
-              <div class="info" style="display: none; color: red;>
+              <div class="info">
                 <span class="material-symbols-outlined">
                   info
                   </span>
                   <span>Enter card's number</span>
-  
               </div>
             </div>
           </div>
@@ -73,7 +73,7 @@
             <label for="">Expired date</label>
             <div class="cardRequired">
               <input type="date"  placeholder="Expired date ..."><br>
-              <div class="info" style="display: none; color: red";>
+              <div class="info">
                 <span class="material-symbols-outlined">
                   info
                   </span>
@@ -82,7 +82,7 @@
               </div>
             </div>
           </div>
-          <input type="submit" onclick="submitCheckOut()" value="Submit" ondblclick="onSubmit()">
+          <input type="submit" onclick="submitCheckOut()" value="Submit">
         </div>
       </div>
       <div class="total_price">

@@ -7,6 +7,7 @@
   width: 100%;
   background-color: rgba(0, 0, 0, 0.75);
   z-index: 10;
+  
   .check_out {
     position: fixed;
       top: 5vh;
@@ -20,6 +21,17 @@
       border-radius: $boder_raduis;
       box-shadow: 0 0 5px .5px $bg_color;
       border: none;
+      .cardRequired{
+        .info{
+          margin:4px 0;
+          display: none;
+          color: red;
+          span:last-child{
+            margin-left: 5px;
+            margin-top: 3px;
+          }
+        }
+      }
       input {
         padding: 10px;
         width: 97%;

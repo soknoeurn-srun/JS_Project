@@ -402,7 +402,7 @@ footer .contact .info i {
   width: 100%;
   height: 25vh;
   border-radius: 7px;
-  background: #000;
+  background: rgba(220, 218, 218, 0.891);
 }
 .dom_product_container .productCard .card_show .product_info .product img {
   width: 90%;
@@ -582,6 +582,15 @@ footer .contact .info i {
   border-radius: 7px;
   box-shadow: 0 0 5px 0.5px orange;
   border: none;
+}
+.check_out_content .check_out .cardRequired .info {
+  margin: 4px 0;
+  display: none;
+  color: red;
+}
+.check_out_content .check_out .cardRequired .info span:last-child {
+  margin-left: 5px;
+  margin-top: 3px;
 }
 .check_out_content .check_out input {
   padding: 10px;

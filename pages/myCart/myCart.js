@@ -111,7 +111,6 @@ let removeCart = (event) => {
    renderProductCart() 
 }
 let manageInfo = (indexInfo, action) => {
-  console.log(cardRequired[indexInfo].firstChild.nextSibling);
   if (action === 'show') {
     cardRequired[indexInfo].lastChild.previousSibling.style.display = 'flex'
     cardRequired[indexInfo].firstChild.nextSibling.style.border = '3px solid red';
@@ -139,7 +138,16 @@ let submitCheckOut=()=>{
   else{
     manageInfo(2, 'hide')
   }
+  if(card_name.value !=='' && card_number.value.length ===9 && card_expired.value !==''){
+    hide(card_checkout)  
+    clearInputCard()
+  }
   
+}
+let clearInputCard =()=>{
+  card_name.value = ""
+  card_expired.value = ""
+  card_number.value = ""
 }
 let cardValidate =()=>{
   if(card_number.value.length >9){
@@ -152,6 +160,7 @@ let cardValidate =()=>{
   }
 }
 let hide = (element) => {
+  card_checkout.style.display = 'none'
   element.style.display = "none";
 };
 let show = (element) => {
@@ -160,9 +169,6 @@ let show = (element) => {
 let showCard = () => {
   show(card_checkout);
 };
-let onSubmit = (e) => {
-  hide(card_checkout)
-}
 
 renderProductCart()
 
