@@ -61,7 +61,7 @@ let customerProduct = () => {
   
       let description_link = document.createElement('a');
       // description_link.href = 'pages/detail/detail_product.html';
-      description_link.href = '#';
+      description_link.href = 'pages/detail/detail_product.html';
       description_link.addEventListener('click',onClickDetail);
       product_detail.appendChild(description_link);
   
